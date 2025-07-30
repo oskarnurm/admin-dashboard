@@ -1,18 +1,24 @@
 @font-face {
   font-family: "Roboto";
-  src: url(./assets/fonts/Roboto.ttf);
+  src: url(./assets/fonts/Roboto.ttf) format("truetype");
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", system-ui, sans-serif;
+  line-height: 1.5;
 }
 
 .container {
-  min-height: 100vh;
-  font-family: Roboto, system-ui, sans-serif;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  min-height: 100vh;
 }
 
 .searchbar {
@@ -22,6 +28,7 @@
   align-items: center;
   gap: 100px;
   padding: 10px 20px 0 20px;
+  background: white;
 }
 
 .search {
@@ -37,8 +44,9 @@ input {
   border: none;
   outline: none;
   border-radius: 16px;
-  padding: 5px 12px;
+  padding: 14px 12px;
   height: 20px;
+  max-width: 600px;
 }
 
 .search svg {
@@ -70,11 +78,14 @@ input {
 }
 
 .navbar {
+  position: relative; /* Needs to sit above for shadow to work */
   display: grid;
   grid-column: 2 / 4;
   grid-template-columns: 3fr 1fr;
   align-items: center;
   padding: 20px;
+  background: white;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
 .navbar-profile {
@@ -88,13 +99,15 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
+  padding-right: 20px;
 }
 
 button {
   background-color: #1a92d5;
   color: white;
   border: none;
-  padding: 10px 24px;
+  padding: 10px 0;
+  width: 6rem;
   border-radius: 20px;
   font-weight: bold;
 }
@@ -159,48 +172,111 @@ button {
   height: 20px;
 }
 
-.announcements {
-  display: grid;
-  grid-column: 3 / 4;
-  align-items: center;
+.main {
+  background: #e2e8f0;
+  grid-column: 2 / 3;
+  padding: 20px 0 0 20px;
 }
 
-.trending {
-  display: grid;
-  grid-column: 3 / 4;
-  align-items: center;
+.main h1 {
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 5px;
 }
 
 .projects {
-  background-color: #e2e8f0;
   display: grid;
-  grid-column: 2 / 3;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-.projects p {
-  font-size: 18px;
-  font-family: sans-serif;
-  color: white;
-  text-align: left;
-}
-
-.projects .card {
-  background-color: #ffffff;
-  color: black;
-  text-align: center;
+.card {
+  position: relative;
+  background: white;
   height: 200px;
+  border-left: 8px solid #f0b42a;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .card p {
-  color: black;
-  font-weight: normal;
+  color: grey;
   font-size: 14px;
-  padding: 5px;
 }
 
 .card .title {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card svg {
+  height: 22px;
+}
+
+.icons {
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  gap: 26px;
+}
+
+.sidebar {
+  background: #e2e8f0;
+  display: grid;
+  grid-column: 3 / 4;
+  padding: 20px 20px 0 20px;
+}
+
+.sidebar h1 {
   font-size: 18px;
-  text-align: center;
+  font-weight: 500;
+  padding-bottom: 5px;
+}
+
+.sidebar li {
+  list-style-type: none;
+}
+
+.sidebar-container {
+  background: white;
+  padding: 26px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-container p {
+  font-size: 10px;
+  color: grey;
+}
+
+.sidebar-container h1 {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 0;
+}
+
+.announcements .sidebar-container ul li + li {
+  border-top: 1px solid #ddd;
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+}
+
+.trending img {
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.trending li {
+  display: flex;
+  gap: 20px;
+}
+
+.trending ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
