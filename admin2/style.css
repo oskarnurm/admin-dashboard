@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.content-area {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.projects {
+  grid-column: 1 / 2;
+}
+
+.right-panel {
+  grid-column: 2 / 3;
+}
