@@ -27,14 +27,12 @@ html {
     "left-sidebar"
     "right-sidebar";
   min-height: 100vh;
-  background: var(--background-color);
 }
 
 .header {
   grid-area: header;
   background: var(--white-color);
   padding: 1rem;
-  border: 2px dashed black;
 }
 .main-content {
   grid-area: main-content;
@@ -42,7 +40,14 @@ html {
 }
 .left-sidebar {
   grid-area: left-sidebar;
-  background: #f5d55f;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  fill: var(--white-color);
+  color: var(--white-color);
+  gap: 5vh;
+  font-weight: bold;
+  padding: 20px 0 20px 20px;
 }
 .right-sidebar {
   grid-area: right-sidebar;
@@ -136,6 +141,42 @@ html {
   padding: 0.5rem clamp(0.75rem, 2vw, 1.15rem); /* vertical 0.5rem, horizontal clamps between 0.75rem and 1.25rem */
   border-radius: 9999px;
   font-weight: bold;
+}
+
+.left-sidebar svg {
+  height: 28px;
+}
+
+.left-sidebar a {
+  text-decoration: none;
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.left-sidebar li {
+  list-style-type: none;
+}
+
+.left-sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.logo svg {
+  height: 46px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
 }
 
 /* tablet breakpoint */
